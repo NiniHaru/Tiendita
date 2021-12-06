@@ -1,0 +1,18 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href= '{% static "css/index.css" %}'>
+
+<header>
+    <div class="contenedor">
+        <a  class="logo" href="{% url 'inicio' %}">Mr.Clothes</a>
+        <input type="checkbox" id="menu-bar">
+        <label class="icon-menu" for="menu-bar"></label>
+         <nav class="menu">
+            <a href="{% url 'inicio' %}">Inicio</a>
+            <a {% block productos %}{% endblock %} href="{% url 'productos' %}">Productos</a>
+            <a {% block historial %}{% endblock %} href="#">Historial</a>
+            <a href="{% url 'cerrar' %}">Cerrar sesion</a>
+            <a {% block carrito %}{% endblock %} href="{% url 'carrito' %}"><img src="{% static 'img/carrito.png' %}"></a>
+        </nav>
+    </div>
+</header>

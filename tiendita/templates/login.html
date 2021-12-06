@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+    
+{% block head %}
+      
+    <link rel="stylesheet" type="text/css" href= '{% static "css/registroLogin.css" %}'>
+    <title>Inicio Sesion | Mr.Clothes </title>
+      
+{% endblock %}
+
+
+{% block inicioSesion %}class="select"{% endblock %}
+
+{% block contenido %}
+
+<form method="post">
+    
+    {% csrf_token %}
+    
+<div class="login-wrap">
+    <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Iniciar Sesión</label>
+        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
+        <div class="login-form">
+            <div class="sign-in-htm">
+                <div class="group">
+                    <label for="user" class="label">Correo</label>
+                    <input id="user" type="text" class="input" name="correo" required>
+                </div>
+
+                <div class="group">
+                    <label for="pass" class="label">Contraseña</label>
+                    <input id="pass" type="password" class="input" data-type="password" name="contra" required>
+                </div>
+
+                <div class="group">
+                    <input type="submit" class="button" value="Iniciar Sesión">
+                </div>
+                
+                <div class="hr"></div>
+
+                <div class="group">
+                    <center>
+                    {% if messages %}
+                        {% for msg in messages %}
+                            <p class="msg">{{msg}}</p>
+                        {% endfor %}
+                    {% endif %}
+                    </center>
+                </div>
+
+                <div class="foot-lnk">
+                    <a href="{% url 'F' %}">¿Olvidaste tu contraseña?</a>
+                </div><br>
+
+                <div class="foot-lnk">
+                    <p>¿No tienes una cuenta?<a href="{% url 'registro' %}" class="link"> Registrate</a></p>
+                </div>
+
+            </div>
+         </div>  
+    </div>  
+</div>
+</form>
+
+{% endblock %}

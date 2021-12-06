@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
+
+    <link rel="icon" type="image/png" href="#">
+    <link rel="stylesheet" type="text/css" href= '{% static "css/base.css" %}'>
+    {% block head %}{% endblock %}
+
+</head>
+
+<body>
+
+    <header>
+        <div class="contenedor">
+            <a  class="logo" href="{% url 'inicio' %}">Mr.Clothes</a>
+            <input type="checkbox" id="menu-bar">
+            <label class="icon-menu" for="menu-bar"></label>
+             <nav class="menu">
+                {% block menu %}
+                <a href="{% url 'inicio' %}">Inicio</a>
+                <a {% block productos %}{% endblock %} href="{% url 'productos' %}">Productos</a>
+                <a {% block inicioSesion %}{% endblock %} href="{% url 'login' %}">Iniciar Sesion</a>
+                <a {% block registro %}{% endblock %} href="{% url 'registro' %}">Registrate</a>
+                <a href="{% url 'carrito' %}"><img src="{% static 'img/carrito.png' %}"></a>
+                {% endblock %}
+            </nav>
+        </div>
+    </header>
+
+
+    {% block contenido %}{% endblock %}
+   
+
+    <footer class="mainFooter">
+        <div class="container containerFlex">
+               
+            <div class="column column33">
+                <h2 class="columnTituloFooter">Mr. Clothes</h2>
+                <p class="columnTxtFooter">Ropa y accesorios exclusivos para hombres y mujeres, desde Miami a tu closet.</p>
+                <p class="columnTxtFooter">Envios a todo Chile.</p>
+            </div>
+                
+            <div class="column column33">
+                <h2 class="columnTituloFooter">Contáctanos</h2>
+                <p class="columnTxtFooter">Antofagasta, Chile</p>
+                <p class="columnTxtFooter">Telefono +569 79686961</p>
+                <p class="columnTxtFooter">mr.clothes@gmail.com</p>
+            </div>
+                
+            <div class="column column33">
+                <h2 class="columnTituloFooter">Instagram</h2>
+                <p class="columnTxtFooter"><a href="https://instagram.com/mr_clotheschile?utm_medium=copy_link" class="icon-insta" target="_blank">@mr_clotheschile</a></p>
+                <p class="columnTxtFooter"><a href="https://instagram.com/mr_clotheschileforwoman?utm_medium=copy_link" class="icon-insta" target="_blank">@mr_clotheschileforwoman</a></p>
+            </div>
+            <p class="copy">&copy; 2021 Mr.Clothes | Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+</body>
+</html>

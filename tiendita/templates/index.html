@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+
+    <link rel="stylesheet" type="text/css" href= '{% static "css/index.css" %}'>
+    <title>Inicio | Mr.Clothes </title>
+      
+{% endblock %}
+
+{% block contenido %}
+
+<main>
+    <section id="banner">
+        <img src="{% static 'img/banner.jpg' %}">
+    </section>
+        
+    <section id="bienvenido">
+        <center>
+            <div class="bienvenidoss">
+                <h2 class="bienvenidos">Bienvenid@s a Mr.Clothes</h2>
+                <p class="bienvenidos-txt">“Creo que la ropa puede dar a las personas una mejor imagen de sí mismos, que puede aumentar sus sentimientos de confianza y felicidad”</p>
+            </div>
+        </center>
+    </section>          
+</main>
+
+{%  if request.session.per_correo %}
+
+    
+<header>
+    <div class="contenedor">
+        <a  class="logo" href="{% url 'inicio' %}">Mr.Clothes</a>
+        <input type="checkbox" id="menu-bar">
+        <label class="icon-menu" for="menu-bar"></label>
+            <nav class="menu">
+            <a class="select" href="{% url 'inicio' %}">Inicio</a>
+            <a href="{% url 'productos' %}">Productos</a>
+            <a href="#">Historial</a>
+            <a href="{% url 'cerrar' %}">Cerrar sesion</a>
+            <a href="{% url 'carrito' %}"><img src="{% static 'img/carrito.png' %}"></a>
+        </nav>
+    </div>
+</header>
+    
+{% else %}
+
+<header>
+    <div class="contenedor">
+        <a  class="logo" href="{% url 'inicio' %}">Mr.Clothes</a>
+        <input type="checkbox" id="menu-bar">
+        <label class="icon-menu" for="menu-bar"></label>
+            <nav class="menu">
+            <a class="select" href="{% url 'inicio' %}">Inicio</a>
+            <a href="{% url 'productos' %}">Productos</a>
+            <a href="{% url 'login' %}">Iniciar Sesion</a>
+            <a href="{% url 'registro' %}">Registrate</a>
+            <a href="{% url 'carrito' %}"><img src="{% static 'img/carrito.png' %}"></a>
+        </nav>
+    </div>
+</header>
+
+{% endif %}  
+
+<section class="seccion productos">
+    <h2 class="seccionTitulo">Lo mas reciente</h2>
+    <div class="container containerFlex">
+
+        {% for producto in productos %}
+        <div class="column column50-25">
+            <a href="#">
+                <img src="{{producto.pro_imagen.url}}" alt="" class="productosImg">
+                <div class="productosTitulo">{{producto.pro_nombre}}</div>
+                <div class="productosTxt">{{producto.pro_marca}}</div>
+                <div class="productosTxt">$ {{producto.pro_precio}}</div>
+                <button class="boton">+ agragar al carrito</button>
+            </a>
+        </div>
+        {% endfor %}
+
+    </div>
+</section>
+{% endblock %}
+

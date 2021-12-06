@@ -1,0 +1,98 @@
+body{
+    background-color: #fff;
+}
+header{
+    background-color: #000;
+    
+}
+a{
+    text-decoration: none;
+}
+
+.logo{
+    color: #fff;
+}
+.select{
+    background: rgba(85,85,85,0.8);
+}
+.menu{
+    background: rgba(0, 0, 0, 0.7);
+}
+.menu a:hover{
+    background: rgba(85,85,85,0.8);
+}
+.mainFooter {
+    background: #000;
+    color: #fff;
+}
+.mainFooter [class*="icon-"] {
+    color: #fff;
+}
+
+.seccionTitulo {
+    font-family: 'Pacifico', cursive;
+    font-size: 30px;
+    text-align: center;
+    font-weight: 100;
+    padding: 16px;
+}
+.productos .column{
+    margin-bottom: 35px;
+    text-align: center;
+    padding: 10px;
+}
+.productosImg {
+    margin: auto;
+    max-width: 260px;
+    border: 2px solid #000;
+    border-radius: 20%;
+}
+.productosTitulo {
+    font-size: 22px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #000;
+}
+.productosTxt {
+    font-size: 16px;
+    color: #000;
+}
+
+.boton{
+    background: #EAEAEA;
+    color: #000;
+    font-size: 16px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 6px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Responsive ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media screen and (min-width:480px) {
+
+    .productos .column {
+        border: 3px solid #000;
+        border-radius: 30px;
+    }
+    .productosImg {
+        height: 200px;
+        object-fit: cover;
+    }
+    .column50-25 {
+        width: 49%;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .column50-25 {
+        width: 24.4%;
+    }
+}
+
+@media screen and (min-width:1024px){
+    .productosImg {
+        height: 240px;
+    }
+}

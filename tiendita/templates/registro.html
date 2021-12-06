@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+    
+{% block head %}
+      
+    <link rel="stylesheet" type="text/css" href= '{% static "css/registroLogin.css" %}'>
+    <title>Registro | Mr.Clothes </title>
+      
+{% endblock %}
+
+
+{% block registro %}class="select"{% endblock %}
+
+{% block contenido %}
+  
+<form method="post">
+    {% csrf_token %}
+        
+<div class="login-wrap">
+    <div class="login-html">
+        <input id="tab-2" type="radio" name="tab" class="sign-up" checked><label for="tab-2" class="tab">Registrarse</label>
+        <div class="login-form">      
+            <div class="sign-up-htm">
+                <div class="group">
+                    <label for="user" class="label">Rut</label>
+                    <input id="user" type="text" class="input" name="rut" required>
+                </div>
+                    
+                <div class="group">
+                    <label for="pass" class="label">Nombre</label>
+                    <input id="user" type="text" class="input" name="nombre" required>
+                </div>
+                    
+                <div class="group">
+                    <label for="pass" class="label">Apellido</label>
+                    <input id="user" type="text" class="input" name="apellido" required>
+                </div>
+                    
+                <div class="group">
+                    <label for="pass" class="label">N° Telefono</label>
+                    <input id="user" type="tel" class="input" name="fono" required>
+                </div>
+                
+                <div class="group">
+                    <label for="pass" class="label">Correo</label>
+                    <input id="user" type="email" class="input" name="correo" required>
+                </div>
+                
+                <div class="group">
+                    <label for="pass" class="label">Contraseña</label>
+                    <input id="pass" type="password" class="input" data-type="password" name="contra" required>
+                </div><br>
+                
+                <div class="group">
+                    <center>
+                    {% if messages %}
+                        {% for msg in messages %}
+                            <p class="msg">{{msg}}</p>
+                        {% endfor %}
+                    {% endif %}
+                    </center>
+                </div>
+
+                <div class="foot-lnk">
+                    <!-- <p>Al registrarte estas aceptando nuestros <a href="#" class="link">Terminos y Condiciones</a></p> -->
+                    <p>¿Ya tienes una cuenta?<a href="{% url 'login' %}" class="link"> Inicia Sesión</a></p>
+                </div>
+                
+                <div class="group">
+                    <input type="submit" class="button" value="Registrarse">
+                </div>  
+            </div>
+        </div>  
+     </div>
+</div>    
+</form>
+
+
+{% endblock %}
